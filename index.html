@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Imran Hossain | Portfolio</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" type="image/svg+xml" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #f0f8ff, #e0ffe0, #fff0f5, #f5f5dc);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    :root {
+      --bg-color: #fdfdfd;
+      --text-color: #333;
+      --primary-color: #004d2a; /* Darker green for better contrast with flag */
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--primary-color);
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    nav a, .dropdown {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+    }
+
+    nav a:hover, .dropdown:hover .dropbtn {
+      text-decoration: underline;
+    }
+
+    .dropbtn {
+      background: none;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 10px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .flag {
+      width: 40px;
+      height: auto;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .clock {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+
+    .active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .gallery-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      margin: 20px auto 10px;
+      display: block;
+    }
+
+    .caption {
+      margin-bottom: 40px;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img class="flag" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" alt="Bangladesh Flag">
+    <nav>
+      <a onclick="showSection('home')">Home</a>
+      <a onclick="showSection('about')">About</a>
+      <div class="dropdown">
+        <button class="dropbtn">Photos</button>
+        <div class="dropdown-content">
+          <a onclick="showSection('gallery2015')">Gallery 2015</a>
+          <a onclick="showSection('gallery2016')">Gallery 2016</a>
+          <a onclick="showSection('gallery2017')">Gallery 2017</a>
+          <a onclick="showSection('gallery2018')">Gallery 2018</a>
+          <a onclick="showSection('gallery2019')">Gallery 2019</a>
+          <a onclick="showSection('gallery2020')">Gallery 2020</a>
+          <a onclick="showSection('gallery2021')">Gallery 2021</a>
+          <a onclick="showSection('gallery2022')">Gallery 2022</a>
+          <a onclick="showSection('gallery2023')">Gallery 2023</a>
+          <a onclick="showSection('gallery2024')">Gallery 2024</a>
+          <a onclick="showSection('gallery2025')">Gallery 2025</a>
+        </div>
+      </div>
+      <a onclick="showSection('contact')">Contact</a>
+      <span class="clock" id="clock"></span>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="section active">
+      <img class="gallery-img" src="https://drive.google.com/uc?id=16OOfeWvjTXvHxbnHF9XI_cqn9nmMc1sB" alt="Profile Picture">
+      <h1>Welcome to My Website</h1>
+      <p>Thank you for visiting! Use the menu to explore more about me.</p>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p>This is Md. Imran Hossain’s personal portfolio website.</p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact Me</h2>
+      <div class="contact-icons">
+        <a href="https://facebook.com" target="_blank">📘 Facebook</a>
+        <a href="https://instagram.com" target="_blank">📸 Instagram</a>
+        <a href="tel:+8801234567890">📞 Call</a>
+        <a href="mailto:your.email@example.com">📧 Email</a>
+      </div>
+      <p>Connect with Md. Imran Hossain easily using the options above.</p>
+    </section>
+
+    <!-- Example gallery section with images -->
+    <section id="gallery2015" class="section">
+      <h2>Gallery 2015</h2>
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1589881133026-3c08ef3d2268" alt="Flower">
+      <p class="caption">এই ছবিটি ২০১৫ সালের স্মৃতি বহন করে।</p>
+      <img class="gallery-img" src="https://images.unsplash.com/photo-1493244040629-496f6d136cc3" alt="Flower">
+      <p class="caption">প্রকৃতির রঙে ভরপুর একটি মুহূর্ত।</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Md. Imran Hossain — All rights reserved.
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.showSection = function(id) {
+        document.querySelectorAll('.section').forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(id).classList.add('active');
+      }
+
+      function updateClock() {
+        const now = new Date();
+        const clock = document.getElementById('clock');
+        const timeStr = now.toLocaleTimeString();
+        clock.textContent = timeStr;
+      }
+
+      setInterval(updateClock, 1000);
+      updateClock();
+    });
+  </script>
+</body>
+</html>
